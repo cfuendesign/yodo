@@ -2,7 +2,7 @@
   <img width="300" src="https://i.imgur.com/QNMbMJu.png"/>
 </p>
 
-# yodo
+# yodo (doesn't work yet)
 
 Pronounced "You-do", yodo is a simple CLI tool to read and execute CRUD operations on YAML files representing todo lists.
 
