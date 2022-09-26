@@ -1,4 +1,6 @@
-<img src="https://i.imgur.com/QNMbMJu.png"/>
+<p align="middle">
+  <img width="300" src="https://i.imgur.com/QNMbMJu.png"/>
+</p>
 
 # yodo
 
