@@ -1,0 +1,5 @@
+done: []
+todo:
+  - Flush dones
+  - Undo a done
+  - Delete a todo
