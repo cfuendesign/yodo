@@ -14,6 +14,37 @@ I just want to create a simple todo list that I can easily take a peek from the 
 
 I know. It stands for "YAML todo". I had a better name but forgot what it stood for so I'm sticking to "yodo", which has a simple meaning and is written the same as iodine (the halogen) in spanish.
 
+### getting started
+
+Grab the lastest binary from the [releases](https://github.com/cfuendesign/yodo/releases) section
+
+You'll need a YAML file to read. For example:
+```yaml
+todos.yaml
+
+done:
+  - Clean my room
+todo:
+  - Conquer the world
+  - Create a js framework
+```
+
+The basic command is the "read" command, which is the app's main command.
+The usage is `yodo <fileName>`:
+```bash
+yodo ./todos.yaml
+```
+
+The app will answer with a neat little todo list
+```bash
+✀  ./todos.yaml 
+	✗ Conquer the world
+	✗ Create a js framework
+	✔ Clean my room
+```
+
+For more info on commands.. Just check the roadmap for now.
+
 ### roadmap
 
 v1.0
@@ -22,6 +53,7 @@ v1.0
 - [x] Mark todo as done [Done in API and program] (`yodo do` command)
 - [x] Flush items marked as "done" [Done in API and program] (`yodo flush` command)
 - [x] Flush todos [Done in API and program] (`yodo --todos/-t flush` command)
+- [ ] Create todolist file (`yodo init`)
 - [ ] Customizable bullet-points/icons when reading todos [Done in API] (`yodo.conf.ts`)
 - [ ] Show todos' numbers (`yodo.conf.ts: todo-number`)
 
