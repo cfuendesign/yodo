@@ -4,7 +4,6 @@ import {
 } from 'https://deno.land/std@0.82.0/encoding/yaml.ts';
 
 class todoDAO {
-
     #fileName: any;
     #todoList: any;
     listIcon: string = "✀ ";
@@ -31,17 +30,24 @@ class todoDAO {
         this.#todoList?.done.forEach((done: any)=>console.log(`	${this.doneIcon} ${done}`))
     }
 
+    printListWithTodoNumbers = async (topMessage: string) => {
+        await this.#setUpTodoList();
+        console.log(`${this.listIcon} ${this.#fileName} ${topMessage}`)
+        this.#todoList?.todo.forEach((todo: any, index: number)=>console.log(`	${this.todoIcon} ${todo}`))
+        this.#todoList?.done.forEach((done: any)=>console.log(`	${this.doneIcon} ${done}`))
+    }
+
     #write = async (operation: () => void, topMessage: string) => {
         await this.#setUpTodoList();
         operation();
         await Deno.writeTextFile(this.#fileName, yamlStringify(this.#todoList))
-        this.printList(topMessage);
+        await this.printList(topMessage);
     }
 
     addTodo = async (newTodo: string) => {
         await this.#write(
             ()=>{this.#todoList.todo.push(newTodo);},
-            `  + Added \"${newTodo}\"`
+            `  ${this.addIcon} Added \"${newTodo}\"`
         )
     }
 
@@ -59,21 +65,36 @@ class todoDAO {
 
     flushDones = async () => {
         await this.#write(
-            ()=>{this.#todoList.done = new Array(0)},
+            ()=>{this.#todoList.done = []},
             `  ${this.flushIcon} Flushed items marked as \"done\"`
         )
     }
+
+    flushTodos = async () => {
+        await this.#write(
+            ()=>{this.#todoList.todo = []},
+            `  ${this.flushIcon} Flushed \"todo\" items`
+        )
+    }
+
 }
 
-const dao = new todoDAO("todos.yaml")
-dao.listIcon = ""
-dao.todoIcon = ""
-dao.doneIcon = ""
-dao.flushIcon = ""
-dao.addIcon = ""
-dao.deleteIcon = ""
+export default todoDAO;
 
-dao.printList("");
-dao.addTodo("Make sure this works well");
-dao.markAsDone(3);
-dao.flushDones();
+// const main = async () => {
+//     const dao = new todoDAO("todos.yaml")
+//     dao.listIcon = ""
+//     dao.todoIcon = ""
+//     dao.doneIcon = ""
+//     dao.flushIcon = ""
+//     dao.addIcon = ""
+//     dao.deleteIcon = ""
+//     
+//     //all operations must be awaited inside an async function to make sure they work
+//     await dao.printList("");
+//     await dao.addTodo("Make sure this works well");
+//     await dao.markAsDone(3);
+//     await dao.flushDones();
+// }
+// 
+// main();

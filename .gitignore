@@ -1,5 +1,8 @@
 .env
 
+backup/
+bin/
+
 /target
 .deno_plugins
 **/*.rs.bk

@@ -1,5 +1,4 @@
-done: []
+done:
+  - Conquer the world
 todo:
-  - Flush dones
-  - Undo a done
-  - Delete a todo
+  - Create a js framework

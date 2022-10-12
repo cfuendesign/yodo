@@ -2,7 +2,7 @@
   <img width="300" src="https://i.imgur.com/QNMbMJu.png"/>
 </p>
 
-# yodo (doesn't work yet)
+# yodo v0.5.0
 
 Pronounced "You-do", yodo is a simple CLI tool to read and execute CRUD operations on YAML files representing todo lists.
 
@@ -17,18 +17,25 @@ I know. It stands for "YAML todo". I had a better name but forgot what it stood 
 ### roadmap
 
 v1.0
-- [ ] Read todos from file [Done in API]
-- [ ] Add todo [Done in API]
-- [ ] Mark todo as done [Done in API]
-- [ ] Mark multiple todos as done in a single command
-- [ ] Customizable bullet-points/icons when reading todos [Done in API]
-- [ ] Flush items marked as "done" [Done in API]
-- [ ] Marking "done" items as "todo" (undo dones)
-- [ ] Delete todos
-- [ ] Delete items marked as done
+- [x] Read todos from file [Done in API and program] (`yodo` command)
+- [x] Add todo [Done in API and program] (`yodo add` command)
+- [x] Mark todo as done [Done in API and program] (`yodo do` command)
+- [x] Flush items marked as "done" [Done in API and program] (`yodo flush` command)
+- [x] Flush todos [Done in API and program] (`yodo --todos/-t flush` command)
+- [ ] Customizable bullet-points/icons when reading todos [Done in API] (`yodo.conf.ts`)
+- [ ] Show todos' numbers (`yodo.conf.ts: todo-number`)
 
-v1.1
-- [ ] TUI with normie bindings
+v1.x
+- [ ] Marking "done" items as "todo" (undoing dones) v1.1 (`yodo undo` command)
+- [ ] Delete specific todos v1.2 (`yodo delete t#` command)
+- [ ] Delete specific items marked as done v1.3 (`yodo delete d#` command)
+- [ ] Mark multiple todos as done in a single command v1.4 (`yodo do --bulk #,#,#,#` command)
+- [ ] Flush mode (flush "done" items every time a todo is deleted)
+- [ ] Show dones' IDs (`yodo.conf.ts: todo-number`)
 
-v1.2
-- [ ] Modal editing/Vim bindings (Insert Mode, Todo Mode)
+v2.0
+- [ ] Basic todo read is now achieved through the `yodo read` command
+- [ ] TUI with normie bindings (`yodo` command, which is a breaking change)
+
+v2.x
+- [ ] Modal editing/Vim bindings (Insert Mode, Todo Mode) v2.1
