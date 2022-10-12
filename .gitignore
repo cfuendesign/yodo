@@ -2,6 +2,7 @@
 
 backup/
 bin/
+*.yaml
 
 /target
 .deno_plugins
